@@ -1,0 +1,267 @@
+/*
+ Theme Name: Twenty Twenty-Four Child
+ Description: A child theme of the Twenty Twenty-Four theme
+ Author: Hanin Alnajjar
+ Template: twentytwentyfour
+ Version: 1.0.0
+*/
+
+/* General Styling */
+.complaint-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    flex-direction: row-reverse;
+    width: 1000px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.complaint-form-wrapper {
+    background-color: #d7c4e6f5;
+    padding: 25px 30px;
+    width: 45%;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+    animation-delay: 0.3s;
+}
+
+.complaint-info {
+    padding: 20px;
+    width: 55%;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    animation: slideInFromLeft 1s forwards 1s;
+    animation-delay: 0.3s;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Fade-in Effect for Headers and Paragraphs */
+h1, h2, h3, h4, h5, h6, p, div {
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1,h2,h3,h4,h5,h6 {
+    animation-delay: 0.2s;
+}
+
+p {
+    animation-delay: 0.3s;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: auto;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus-visible, textarea:focus-visible {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+    background-color: #7765ac;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #614ba1;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.form-header {
+    color: #081466;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.error-message {
+    color: #f73179;
+    font-size: 0.9em;
+}
+
+.desktop-image {
+    width: 100%;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.5s;
+}
+
+footer.wp-block-template-part {
+    margin: 0;
+}
+
+/* reCAPTCHA Styling */
+.g-recaptcha {
+    margin-bottom: 15px;
+    text-align: -webkit-center;
+}
+
+/* Popup Styling */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 25px !important;
+}
+
+.popup-content h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.popup-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #614ba1;
+    color: #fff;
+}
+
+
+@media (max-width: 1024px) {
+    .complaint-form-wrapper {
+        width: 90%;
+    }
+
+    .complaint-info {
+        width: 90%;
+    }
+
+    .complaint-form-container {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .complaint-form-container {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .complaint-info {
+        width: 100%;
+        order: -1; /* Place the text before the form */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .complaint-form-wrapper {
+        width: 90%;
+    }
+
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+    #complaintForm > div.g-recaptcha > div > div > iframe {
+        width: 230px !important;
+    }
+    .g-recaptcha {
+        text-align: -webkit-auto;
+	    width: 200px;
+    }
+}
+
+@media (max-width: 300px) {
+    #complaintForm > div.g-recaptcha > div > div > iframe {
+        width: 180px !important;
+    }
+}
